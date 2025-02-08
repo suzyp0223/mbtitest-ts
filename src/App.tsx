@@ -8,15 +8,13 @@ import Result from './pages/ResultPage';
 
 function App(): React.ReactElement {
   return (
-    <div className="App">
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<MainPage />} />
-          <Route path="/question" element={<Question />} />
-          <Route path="/result" element={<Result />} />
-        </Routes>
-      </BrowserRouter>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<MainPage />} />
+        <Route path="/question" element={<Question />} />
+        <Route path="/result" element={<Result />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
