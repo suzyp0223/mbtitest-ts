@@ -1,9 +1,12 @@
 import React from 'react';
+import { QuestionData } from '../stores/Questions/QuestionData';
 
 export default function QuestionPage(): React.ReactElement {
   return (
     <>
-      <div>이곳은 질문 페이지입니다.</div>
+      <div>{QuestionData[0].title}</div>
+      <div>{QuestionData[0].answera}</div>
+      <div>{QuestionData[0].answerb}</div>
     </>
   );
 }
