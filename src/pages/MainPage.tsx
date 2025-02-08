@@ -41,6 +41,7 @@ const Wrapper = styled.div`
   width: 100%;
   height: 100vh;
   background: #fffacd;
+  font-family: 'Jalnan';
 `;
 
 const Header = styled.div`
@@ -49,6 +50,7 @@ const Header = styled.div`
   align-items: center;
   display: flex;
   justify-content: center;
+  font-family: 'Jalnan';
 `;
 
 const ContentsWrapper = styled.div`
