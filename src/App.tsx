@@ -9,7 +9,7 @@ import Result from './pages/ResultPage';
 
 function App(): React.ReactElement {
   return (
-    <BrowserRouter>
+    <BrowserRouter future={{ v7_startTransition: true }}>
       <Routes>
         <Route path="/" element={<MainPage />} />
         <Route path="/question" element={<Question />} />

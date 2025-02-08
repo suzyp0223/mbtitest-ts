@@ -17,7 +17,7 @@ export default function MainPage(): React.ReactElement {
     <>
       <Wrapper>
         <ContentsWrapper>
-          <Header type="title" />
+          <Header type="title" questionNo={0} />
           <Title>나에게 맞는 주인님은?</Title>
           <LogoImage>
             <Image className="rounded-circle" src={BabyDogImg} width={300} height={300} />
