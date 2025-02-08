@@ -4,6 +4,7 @@ import { Button, Image } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 
 import BabyDogImg from '../assets/babyDog.jpg';
+import Header from '../components/Header';
 
 export default function MainPage(): React.ReactElement {
   const navigate = useNavigate();
@@ -16,7 +17,7 @@ export default function MainPage(): React.ReactElement {
     <>
       <Wrapper>
         <ContentsWrapper>
-          <Header>😻예비집사 판별기</Header>
+          <Header type="title" />
           <Title>나에게 맞는 주인님은?</Title>
           <LogoImage>
             <Image className="rounded-circle" src={BabyDogImg} width={300} height={300} />
@@ -41,15 +42,6 @@ const Wrapper = styled.div`
   width: 100%;
   height: 100vh;
   background: #fffacd;
-  font-family: 'Jalnan';
-`;
-
-const Header = styled.div`
-  background: #ffa07a;
-  font-size: 20pt;
-  align-items: center;
-  display: flex;
-  justify-content: center;
   font-family: 'Jalnan';
 `;
 
