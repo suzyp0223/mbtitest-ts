@@ -6,12 +6,15 @@ import { useNavigate, useSearchParams } from 'react-router-dom';
 import { ResultData } from '../stores/Result/ResultData';
 import BabyDogImg from '../assets/babyDog.jpg';
 import Header from '../components/Header';
+import { IResult } from '../stores/Result/types';
 
 export default function ResultPage(): React.ReactElement {
   const [searchParams] = useSearchParams();
   const mbti = searchParams.get('mbti');
+  // const findName = ResultData.find((data) => data.mbti === mbti);
 
-  const findName = ResultData.find((data) => data.mbti === mbti);
+  const testResult = ResultData.find((cat: IResult) => cat.best === mbti);
+  const friendCat = ResultData.find((friend) => friend.best === testResult?.mbti);
 
   return (
     <>
@@ -20,11 +23,15 @@ export default function ResultPage(): React.ReactElement {
         <ContentsWrapper>
           <Title>결과 보기</Title>
           <ResultImage>
-            <Image className="rounded-circle" src={BabyDogImg} width={350} height={350} />
+            <Image className="rounded-circle" src={testResult?.image} width={350} height={350} />
           </ResultImage>
           <Desc>
-            예비집사님과 찰떡궁합인 고양이는 {findName?.mbti}형 고양이 {findName?.name}입니다.
+            {testResult?.best}형 예비집사님과 찰떡궁합인 고양이는 {testResult?.mbti}형 고양이 {testResult?.name}입니다.
           </Desc>
+          <Desc>
+            {testResult?.name} 고양이는 {testResult?.desc}
+          </Desc>
+          <BestDesc> 나의 고양이와 잘맞는 형제 묘로는 {friendCat?.name}를 추천드려요.</BestDesc>
         </ContentsWrapper>
       </Wrapper>
     </>
@@ -41,12 +48,13 @@ const Wrapper = styled.div`
 `;
 
 const ContentsWrapper = styled.div`
+  background: #fffacd;
   align-items: center;
   display: flex;
   justify-content: center;
   flex-direction: column;
   margin-top: 20px;
-  padding: 20px 20px 20px 20px;
+  padding: 20px 60px 20px 60px;
 `;
 
 const Title = styled.div`
@@ -61,5 +69,10 @@ const ResultImage = styled.div`
   margin-bottom: 20px;
 `;
 const Desc = styled.div`
-  font-size: 10pt;
+  font-size: 15pt;
+`;
+
+const BestDesc = styled.div`
+  font-size: 15pt;
+  color: blue;
 `;
