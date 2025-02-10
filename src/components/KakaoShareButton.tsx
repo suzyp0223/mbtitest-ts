@@ -10,7 +10,7 @@ interface Props {
 
 export default function KakaoShareButton(props: Props) {
   // console.log('props', props);
-  const url = 'https://mbtiprac-ts.netlify.app';
+  const url = 'https://mbtiprac-ts.netlify.app/';
   const resultUrl = window.location.href;
 
   React.useEffect(() => {
