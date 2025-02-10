@@ -13,7 +13,9 @@ export default function KakaoShareButton(props: Props) {
   const resultUrl = window.location.href;
 
   React.useEffect(() => {
-    Kakao.init('f15c714b71fa9968b01019411f4c6d0c');
+    if (!Kakao.isInitialized) {
+      Kakao.init('f15c714b71fa9968b01019411f4c6d0c');
+    }
   }, []);
 
   const shareKakao = () => {

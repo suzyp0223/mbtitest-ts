@@ -24,6 +24,8 @@ export default function ResultPage(): React.ReactElement {
   };
   const friendCat = ResultData.find((friend) => friend.best === testResult?.mbti);
 
+  const navigate = useNavigate();
+
   return (
     <>
       <Wrapper>
@@ -41,7 +43,10 @@ export default function ResultPage(): React.ReactElement {
           </Desc>
           <BestDesc> 나의 고양이와 잘맞는 형제 묘로는 {friendCat?.name}를 추천드려요.</BestDesc>
           <div style={{ marginBottom: 30 }}>
-            <Button className="btn-danger" style={{ width: 170, marginTop: 20, marginRight: 20 }}>
+            <Button
+              onClick={() => navigate('/')}
+              className="btn-danger"
+              style={{ width: 170, marginTop: 20, marginRight: 20 }}>
               테스트 다시하기
             </Button>
             <KakaoShareButton data={testResult} />
