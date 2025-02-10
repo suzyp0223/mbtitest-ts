@@ -1,6 +1,7 @@
 import React from 'react';
 import { Button } from 'react-bootstrap';
 import { IResult } from '../stores/Result/types';
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 const Kakao = (window as any).Kakao;
 
 interface Props {
@@ -9,7 +10,7 @@ interface Props {
 
 export default function KakaoShareButton(props: Props) {
   // console.log('props', props);
-  const url = 'https://mbtiprac-ts.netlify.app/';
+  const url = 'https://mbtiprac-ts.netlify.app';
   const resultUrl = window.location.href;
 
   React.useEffect(() => {
