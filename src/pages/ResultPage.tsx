@@ -7,13 +7,21 @@ import { ResultData } from '../stores/Result/ResultData';
 import BabyDogImg from '../assets/babyDog.jpg';
 import Header from '../components/Header';
 import { IResult } from '../stores/Result/types';
+import KakaoShareButton from '../components/KakaoShareButton';
 
 export default function ResultPage(): React.ReactElement {
   const [searchParams] = useSearchParams();
   const mbti = searchParams.get('mbti');
   // const findName = ResultData.find((data) => data.mbti === mbti);
 
-  const testResult = ResultData.find((cat: IResult) => cat.best === mbti);
+  const testResult: IResult = ResultData.find((cat: IResult) => cat.best === mbti) ?? {
+    id: 0,
+    name: '',
+    best: '',
+    desc: '',
+    image: '',
+    mbti: '',
+  };
   const friendCat = ResultData.find((friend) => friend.best === testResult?.mbti);
 
   return (
@@ -32,6 +40,12 @@ export default function ResultPage(): React.ReactElement {
             {testResult?.name} 고양이는 {testResult?.desc}
           </Desc>
           <BestDesc> 나의 고양이와 잘맞는 형제 묘로는 {friendCat?.name}를 추천드려요.</BestDesc>
+          <div style={{ marginBottom: 30 }}>
+            <Button className="btn-danger" style={{ width: 170, marginTop: 20, marginRight: 20 }}>
+              테스트 다시하기
+            </Button>
+            <KakaoShareButton data={testResult} />
+          </div>
         </ContentsWrapper>
       </Wrapper>
     </>
